@@ -69,6 +69,6 @@ class GrowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grow_params
-      params.require(:grow).permit(:name, :user_id, :created_at, :updated_at, :deleted_at)
+      params.require(:grow).permit(:name, :user_id)
     end
 end

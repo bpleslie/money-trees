@@ -17,7 +17,7 @@ class GrowsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create grow" do
     assert_difference('Grow.count') do
-      post grows_url, params: { grow: { created_at: @grow.created_at, deleted_at: @grow.deleted_at, name: @grow.name, updated_at: @grow.updated_at, user_id: @grow.user_id } }
+      post grows_url, params: { grow: { name: @grow.name, user_id: @grow.user_id } }
     end
 
     assert_redirected_to grow_url(Grow.last)
@@ -34,7 +34,7 @@ class GrowsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update grow" do
-    patch grow_url(@grow), params: { grow: { created_at: @grow.created_at, deleted_at: @grow.deleted_at, name: @grow.name, updated_at: @grow.updated_at, user_id: @grow.user_id } }
+    patch grow_url(@grow), params: { grow: { name: @grow.name, user_id: @grow.user_id } }
     assert_redirected_to grow_url(@grow)
   end
 

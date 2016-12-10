@@ -10,20 +10,5 @@
   <%= @grow.user_id %>
 </p>
 
-<p>
-  <strong>Created at:</strong>
-  <%= @grow.created_at %>
-</p>
-
-<p>
-  <strong>Updated at:</strong>
-  <%= @grow.updated_at %>
-</p>
-
-<p>
-  <strong>Deleted at:</strong>
-  <%= @grow.deleted_at %>
-</p>
-
 <%= link_to 'Edit', edit_grow_path(@grow) %> |
 <%= link_to 'Back', grows_path %>
