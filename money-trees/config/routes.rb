@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :plants
   resources :grows
   resources :users
   get 'home/index'
