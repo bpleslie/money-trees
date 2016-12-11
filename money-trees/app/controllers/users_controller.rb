@@ -63,6 +63,7 @@ class UsersController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -74,11 +75,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password)
     end
 
-    def logged_in_user
-      unless logged_in?
-        format.html { redirect_to login_path, notice: 'Please log in.' }
-      end
-    end
 
     def correct_user
       @user = User.find(params[:id])
