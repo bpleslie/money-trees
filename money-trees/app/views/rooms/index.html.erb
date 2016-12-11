@@ -15,7 +15,7 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
-        <td><%= room.name %></td>
+        <td><%= room.name.titleize %></td>
         <td><%= room.grow_id %></td>
         <td><%= room.plants.count %></td>
         <td><%= link_to 'Show', room %></td>

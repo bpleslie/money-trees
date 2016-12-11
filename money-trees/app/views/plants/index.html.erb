@@ -16,7 +16,7 @@
   <tbody>
     <% @plants.each do |plant| %>
       <tr>
-        <td><%= plant.name %></td>
+        <td><%= plant.name.titleize %></td>
         <td><%= plant.strain_id %></td>
         <td><%= plant.room_id %></td>
         <td><%= plant.grow_id %></td>
