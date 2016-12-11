@@ -34,4 +34,16 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def rooms
+    Room.where(grow_id: grows.pluck(:id))
+  end
+
+  def plants
+    Plant.where(grow_id: grows.pluck(:id))
+  end
+
+  def strains
+    Strain.where(id: plants.pluck(:strain_id))
+  end
 end

@@ -1,7 +1,6 @@
 class PlantsController < ApplicationController
   before_action :set_plant, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:index, :show, :edit, :update]
 
   # GET /plants
   # GET /plants.json
@@ -30,6 +29,7 @@ class PlantsController < ApplicationController
 
     respond_to do |format|
       if @plant.save
+        redirect_to(@plant)
         format.html { redirect_to @plant, notice: 'Plant was successfully created.' }
         format.json { render :show, status: :created, location: @plant }
       else
