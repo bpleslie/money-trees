@@ -29,7 +29,6 @@ class PlantsController < ApplicationController
 
     respond_to do |format|
       if @plant.save
-        redirect_to(@plant)
         format.html { redirect_to @plant, notice: 'Plant was successfully created.' }
         format.json { render :show, status: :created, location: @plant }
       else
