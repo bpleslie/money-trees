@@ -1,5 +1,7 @@
 class GrowsController < ApplicationController
   before_action :set_grow, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:index, :show, :edit, :update]
 
   # GET /grows
   # GET /grows.json
@@ -65,6 +67,7 @@ class GrowsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_grow
       @grow = Grow.find(params[:id])
+      @user = @grow.user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

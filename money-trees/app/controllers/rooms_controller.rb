@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:index, :show, :edit, :update]
 
   # GET /rooms
   # GET /rooms.json
@@ -65,6 +67,8 @@ class RoomsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_room
       @room = Room.find(params[:id])
+      @grow = Grow.find(@room.grow_id)
+      @user = @grow.user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
