@@ -30,28 +30,22 @@
   </div>
 </div>
 <hr>
-<h2>Grows</h2>
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Rooms</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<div class="row">
+  <h2>Grows</h2>
 
-  <tbody>
-  <% @user.grows.each do |grow| %>
-      <tr>
-        <td><%= grow.name.titleize %></td>
-        <td><%= grow.rooms.count %></td>
-        <td><%= link_to 'Show', grow %></td>
-        <td><%= link_to 'Edit', edit_grow_path(grow) %></td>
-        <td><%= link_to 'Destroy', grow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+
+  <ul class="col-md-12 grows">
+    <% @user.grows.each do |grow| %>
+      <%= link_to grow do %>
+        <li class="col-md-12 grow" style="background-image: url('<%= grow.picture.url if grow.picture? %>')">
+          <p>Name: <%=  grow.name.titleize %></p>
+          <p>Rooms: <%= grow.rooms.count %></p>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+</div>
 
 <script>
     $(function() {

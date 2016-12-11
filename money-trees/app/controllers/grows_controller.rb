@@ -26,7 +26,8 @@ class GrowsController < ApplicationController
   # POST /grows
   # POST /grows.json
   def create
-    @grow = Grow.new(grow_params)
+    user = current_user
+    @grow = user.grows.build(grow_params)
 
     respond_to do |format|
       if @grow.save
@@ -72,6 +73,6 @@ class GrowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grow_params
-      params.require(:grow).permit(:name, :user_id)
+      params.require(:grow).permit(:name, :user_id, :picture)
     end
 end

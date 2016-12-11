@@ -110,3 +110,17 @@ footer {
   width: auto;
   margin-left: 0;
 }
+
+ul.grows {
+  margin: 0;
+
+  .grow {
+    color: #fff;
+    margin: 10px 0 10px 0;
+    list-style: none;
+    border: 1px solid $gray-medium-light;
+    background: $gray-medium-light;
+    background-attachment: fixed;
+    background-position: center;
+  }
+}

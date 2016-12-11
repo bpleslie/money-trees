@@ -1,4 +1,4 @@
-<%= form_for(grow) do |f| %>
+<%= form_for(grow, html: { multipart: true }) do |f| %>
   <% if grow.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(grow.errors.count, "error") %> prohibited this grow from being saved:</h2>
@@ -16,10 +16,9 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-  </div>
+  <span class="picture">
+    <%= f.file_field :picture %>
+  </span>
 
   <div class="actions">
     <%= f.submit %>
