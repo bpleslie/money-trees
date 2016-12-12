@@ -111,10 +111,14 @@ footer {
   margin-left: 0;
 }
 
-ul.grows {
+ul.grows,
+ul.rooms,
+ul.plants {
   margin: 0;
 
-  .grow {
+  .grow,
+  .room,
+  .plant {
     color: #fff;
     margin: 10px 0 10px 0;
     list-style: none;
@@ -122,5 +126,19 @@ ul.grows {
     background: $gray-medium-light;
     background-attachment: fixed;
     background-position: center;
+  }
+}
+
+.chart {
+  text-align: center;
+}
+
+.user-nav {
+  margin: 0;
+  padding: 0;
+
+  a:hover {
+    color: #000;
+    text-decoration: none;
   }
 }

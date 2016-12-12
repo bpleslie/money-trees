@@ -25,7 +25,9 @@ class PlantsController < ApplicationController
   # POST /plants
   # POST /plants.json
   def create
-    @plant = Plant.new(plant_params)
+    room = Room.find(plant_params[:room_id])
+    plant_params[:grow_id] = room.grow_id
+    @plant = room.plants.build(plant_params)
 
     respond_to do |format|
       if @plant.save
@@ -66,12 +68,12 @@ class PlantsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_plant
       @plant = Plant.find(params[:id])
-      @grow = Grow.find(@plant.grow_id)
-      @user = @grow.user
+      @grow = Grow.find(@plant.grow_id) if @plant.grow_id
+      @user = current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plant_params
-      params.require(:plant).permit(:name, :strain_id, :room_id, :grow_id)
+      params.require(:plant).permit(:name, :strain_id, :room_id, :grow_id, :picture)
     end
 end

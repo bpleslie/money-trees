@@ -13,39 +13,73 @@
 <hr>
 <div class="row">
   <div class="col-md-3">
-    <h4>Grows</h4>
-    <div class="chart" data-percent="<%= @user.grows.count %>" data-scale-color="#ffb400"><%= @user.grows.count %></div>
-  </div>
-  <div class="col-md-3">
-    <h4>Rooms</h4>
-    <div class="chart" data-percent="<%= @user.rooms.count %>" data-scale-color="#ffb400"><%= @user.rooms.count %></div>
-  </div>
-  <div class="col-md-3">
-    <h4>Plants</h4>
-    <div class="chart" data-percent="<%= @user.plants.count %>" data-scale-color="#ffb400"><%= @user.plants.count %></div>
-  </div>
-  <div class="col-md-3">
-    <h4>Strains</h4>
-    <div class="chart" data-percent="<%= @user.strains.count %>" data-scale-color="#ffb400"><%= @user.strains.count %></div>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <h2>Grows</h2>
-
-
-  <ul class="col-md-12 grows">
-    <% @user.grows.each do |grow| %>
-      <%= link_to grow do %>
-        <li class="col-md-12 grow" style="background-image: url('<%= grow.picture.url if grow.picture? %>')">
-          <p>Name: <%=  grow.name.titleize %></p>
-          <p>Rooms: <%= grow.rooms.count %></p>
+    <ul class="list-group user-nav">
+      <%= link_to user_path do %>
+          <li class="active list-group-item">Dashboard</li>
+      <% end %>
+      <%= link_to user_path do %>
+        <li class="list-group-item">
+          <span class="badge"><%= @user.grows.count %></span>
+          Grows
         </li>
       <% end %>
-    <% end %>
-  </ul>
+      <%= link_to user_path do %>
+        <li class="list-group-item">
+          <span class="badge"><%= @user.rooms.count %></span>
+          Rooms
+        </li>
+      <% end %>
+      <%= link_to user_path do %>
+        <li class="list-group-item">
+          <span class="badge"><%= @user.plants.count %></span>
+          Plants
+        </li>
+      <% end %>
+      <%= link_to user_path do %>
+        <li class="list-group-item">
+          <span class="badge"><%= @user.strains.count %></span>
+          Strains
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Grows</h4>
+        <div class="chart" data-percent="<%= @user.grows.count %>" data-scale-color="#ffb400"><%= @user.grows.count %></div>
+      </div>
+      <div class="col-md-3">
+        <h4>Rooms</h4>
+        <div class="chart" data-percent="<%= @user.rooms.count %>" data-scale-color="#ffb400"><%= @user.rooms.count %></div>
+      </div>
+      <div class="col-md-3">
+        <h4>Plants</h4>
+        <div class="chart" data-percent="<%= @user.plants.count %>" data-scale-color="#ffb400"><%= @user.plants.count %></div>
+      </div>
+      <div class="col-md-3">
+        <h4>Strains</h4>
+        <div class="chart" data-percent="<%= @user.strains.count %>" data-scale-color="#ffb400"><%= @user.strains.count %></div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <h2>Grows</h2>
 
+      <ul class="col-md-12 grows">
+        <% @user.grows.each do |grow| %>
+            <%= link_to grow do %>
+                <li class="col-md-12 grow" style="background-image: url('<%= grow.picture.url if grow.picture? %>')">
+                  <p>Name: <%=  grow.name.titleize %></p>
+                  <p>Rooms: <%= grow.rooms.count %></p>
+                </li>
+            <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
+
 
 <script>
     $(function() {

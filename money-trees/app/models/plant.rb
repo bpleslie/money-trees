@@ -1,4 +1,5 @@
 class Plant < ApplicationRecord
+  mount_uploader :picture, ::PictureUploader
   belongs_to :grow
   belongs_to :strain
   belongs_to :room
@@ -12,6 +13,6 @@ class Plant < ApplicationRecord
   end
 
   def grow
-    Grow.find(grow_id).name.titleize
+    Grow.find(grow_id).name.titleize unless grow_id.nil?
   end
 end

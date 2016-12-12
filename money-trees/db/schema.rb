@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211190532) do
+ActiveRecord::Schema.define(version: 20161211204939) do
 
   create_table "grows", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20161211190532) do
     t.integer  "grow_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "picture"
     t.index ["grow_id"], name: "index_plants_on_grow_id"
     t.index ["room_id"], name: "index_plants_on_room_id"
     t.index ["strain_id"], name: "index_plants_on_strain_id"
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20161211190532) do
     t.integer  "grow_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "picture"
     t.index ["grow_id"], name: "index_rooms_on_grow_id"
   end
 
