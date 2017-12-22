@@ -1,0 +1,29 @@
+<ul class="list-group user-nav">
+  <%= link_to user_dashboard_path do %>
+      <li class="active list-group-item">Dashboard</li>
+  <% end %>
+  <%= link_to user_grows_path do %>
+      <li class="list-group-item">
+        <span class="badge"><%= @user.grows.count %></span>
+        Grows
+      </li>
+  <% end %>
+  <%= link_to user_rooms_path do %>
+      <li class="list-group-item">
+        <span class="badge"><%= @user.rooms.count %></span>
+        Rooms
+      </li>
+  <% end %>
+  <%= link_to user_plants_path do %>
+      <li class="list-group-item">
+        <span class="badge"><%= @user.plants.count %></span>
+        Plants
+      </li>
+  <% end %>
+  <%= link_to user_dashboard_path do %>
+      <li class="list-group-item">
+        <span class="badge"><%= @user.strains.count %></span>
+        Strains
+      </li>
+  <% end %>
+</ul>

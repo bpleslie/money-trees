@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
+  get '/user/dashboard', to: 'users#show', :as => :user_dashboard
+  get '/user/grows', to: 'users#grows', :as => :user_grows
+  get '/user/rooms', to: 'users#rooms', :as => :user_rooms
+  get '/user/plants', to: 'users#plants', :as => :user_plants
 
   resources :rooms
   resources :strains

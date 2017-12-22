@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Welcome, <%= @user.name.titleize %></h3>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'layouts/user-nav' %>
+  </div>
+  <div class="col-md-9">
+    <h1>Plants</h1>
+    <div class="row">
+      <ul class="col-md-12 grows">
+        <% @user.plants.each do |plant| %>
+            <%= link_to plant do %>
+                <li class="col-md-12 plant" style="background-image: url('<%= plant.picture.url if plant.picture? %>')">
+                  <p>Name: <%=  plant.name.titleize %></p>
+                  <p>Strain: <%= plant.strain_id %></p>
+                </li>
+            <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <hr>
+  </div>
+</div>
